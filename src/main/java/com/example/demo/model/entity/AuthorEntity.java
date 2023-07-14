@@ -1,6 +1,8 @@
 package com.example.demo.model.entity;
 
+import java.sql.Date;
 import java.time.OffsetDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +18,7 @@ import lombok.Data;
 @Entity
 @Table(name = "author")
 public class AuthorEntity {
-	
+		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "oid")
@@ -29,8 +31,5 @@ public class AuthorEntity {
 	private Integer age;
 	
 	@Column(name = "create_date")
-	private OffsetDateTime createDate;
-	
-	@Column(name = "create_user")
-	private String createUser;
+	private Date createDate;
 }
