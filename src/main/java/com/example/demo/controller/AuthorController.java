@@ -31,8 +31,8 @@ public class AuthorController {
 
 	@ApiOperation("新增作者")
     @PostMapping("/authors")
-    public void createAuthor(@RequestParam String name, @RequestParam Integer age, @RequestParam Date createdate) {
-        authorService.createAuthor(name, age, createdate);
+    public void createAuthor(@RequestParam String name, @RequestParam Integer age, @RequestParam Date createDate) {
+        authorService.createAuthor(name, age, createDate);
     }
 
 	@ApiOperation("更新作者")
