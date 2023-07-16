@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -16,8 +17,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "author")
-public class AuthorEntity {
+@Table(name = "authorentity")
+public class authorentity {
 		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,4 +33,8 @@ public class AuthorEntity {
 	
 	@Column(name = "create_date")
 	private Date createDate;
+	
+	@OneToMany(mappedBy = "author")
+	private List<bookentity> books;
+
 }

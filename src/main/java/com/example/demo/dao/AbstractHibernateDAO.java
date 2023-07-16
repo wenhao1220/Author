@@ -12,7 +12,6 @@ public abstract class AbstractHibernateDAO {
     @Autowired
     private EntityManager entityManager;
 
-
     protected final Session getCurrentSession() {
         return entityManager.unwrap(Session.class);
     }
