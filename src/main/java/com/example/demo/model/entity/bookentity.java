@@ -39,9 +39,4 @@ public class bookentity {
 	@Column(name = "create_date")
     @UpdateTimestamp
 	private OffsetDateTime createDate;
-	
-	@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "author_oid", insertable = false, updatable = false)
-	private authorentity author;
 }

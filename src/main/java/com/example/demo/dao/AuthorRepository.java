@@ -20,22 +20,15 @@ import lombok.Data;
 @Repository
 public interface AuthorRepository extends JpaRepository<authorentity, Integer> {
 
+	void deleteByOid(Integer oid);
+	
 	authorentity findByName(String name);
 
 	List<authorentity> findByNameIn(List<String> nameList);
 	
 	// 根據條件查詢作者以及其底下的書籍
-	@Query("SELECT DISTINCT author FROM authorentity author JOIN FETCH author.books WHERE (:name is null OR author.name = :name) AND (:minAge is null OR author.age >= :minAge) AND (:maxAge is null OR author.age <= :maxAge)")
-	List<authorentity> findOidByName(@Param("name") String name, @Param("minAge") Integer minAge, @Param("maxAge") Integer maxAge);
-	
-	//更新作者
-	@Modifying
-	@Transactional
-	@Query("UPDATE authorentity author SET " +
-	        "author.name = CASE WHEN :name IS NULL THEN author.name ELSE :name END, " +
-	        "author.age = CASE WHEN :age IS NULL THEN author.age ELSE :age END " +
-	        "WHERE author.oid = :oid")
-	int updateAuthor(@Param("oid") Integer oid, @Param("name") String name, @Param("age") Integer age);
+	@Query("select author.oid from authorentity author where author.name = :name")
+    Optional<Integer> findOidByName(String name);
 
 	//刪除作者
 	@Modifying

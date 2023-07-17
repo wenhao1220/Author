@@ -6,13 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookInfoDto {
-    private Integer oid;
+public class AuthorInsertDto {
+	private Integer authorAge;
     private String authorName;
-	private String bookName;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date publicationDate;
 }

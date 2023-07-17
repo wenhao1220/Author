@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 import lombok.Data;
 
 @Data
@@ -32,9 +31,6 @@ public class authorentity {
 	private Integer age;
 	
 	@Column(name = "create_date")
-	private Date createDate;
-	
-	@OneToMany(mappedBy = "author")
-	private List<bookentity> books;
+	private OffsetDateTime createDate;
 
 }
